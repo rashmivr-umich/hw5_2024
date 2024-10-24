@@ -1,0 +1,53 @@
+/* Step 1 */
+/* #logo @keyframes mymove {
+    from {width:25px;
+    opacity: 0;}
+    to {width:475px;
+    opacity: 1;}
+} */
+
+/* step 7 */
+.card {
+    flex-basis: 450px;
+}
+
+/* step 8 */
+.pricing {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+@media screen and (min-width:900px) {
+    /* Steps 11 and 12 */
+    header {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav_links {
+        display: flex;
+        flex-direction: row;
+    }
+    .card {
+        flex-basis: 450px;
+    }
+    .pricing {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+}
+
+@media print and (orientation: portrait){
+    
+}
+
+/* Copied from HW3-CSS-grid */
+@media all and (prefers-reduced-motion: reduce){
+    
+}
+
+
