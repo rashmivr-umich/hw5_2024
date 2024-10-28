@@ -1,28 +1,87 @@
-/* Step 1 */
-/* #logo @keyframes mymove {
+/* Animation for logo */
+
+#logo {
+    animation-name: logozoom;
+    animation-duration: 5s;
+    width: 475px;
+}
+
+@keyframes logozoom {
     from {width:25px;
     opacity: 0;}
     to {width:475px;
     opacity: 1;}
-} */
+}
 
-/* step 7 */
+/* Bodyand and background styling */
+
+body {
+    font-family: 'Poppins', serif;
+    background-color: #f1f1f1; /* backup background color */
+    background-image:url("../images/concrete_seamless.png");
+}
+
+/* Header section styling */
+
+header {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+}
+
+.nav_links {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+nav a:visited {
+    /* visited link styled to have same color as non-visited */
+    color: blue;
+}
+
+/* Content cards styling */
+
+.card > header {
+    background: #288088;
+    border: solid 2px  #45ADAD;
+    padding: 20px 0;
+}
+
+.card, .card > header {
+    border-radius: 50px 50px 0 0;
+}
+
+/* Price cards layout and flow */
 .card {
     flex-basis: 450px;
 }
 
-/* step 8 */
 .pricing {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
 }
 
+/* Gallery images and layout styling */
+.gallery img {
+    border: solid 10px #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+
+.gallery {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+/* styling for width 900px and up */
+
 @media screen and (min-width:900px) {
-    /* Steps 11 and 12 */
     header {
         display: flex;
-        flex-flow: row nowrap;
+        flex-flow: row wrap;
         justify-content: space-between;
         align-items: center;
     }
@@ -31,23 +90,71 @@
         display: flex;
         flex-direction: row;
     }
-    .card {
-        flex-basis: 450px;
-    }
+
+    /* Pricing cards styling and layout */
     .pricing {
         display: flex;
         flex-flow: row wrap;
-        justify-content: center;
+        align-items:  center;
+    }
+    .card {
+        flex-basis: 275px;
     }
 }
 
-@media print and (orientation: portrait){
-    
+/* Fixed navigation bar on top */
+
+body > header {
+    position: sticky;
+    top: 0px;
 }
 
-/* Copied from HW3-CSS-grid */
-@media all and (prefers-reduced-motion: reduce){
-    
+/* Prefers reduced motion query - Copied from HW3-CSS-grid */
+@media all and (prefers-reduced-motion: reduce) {
+    #logo {
+        animation: none;
+    }
+}
+
+/* Print mode of webpage */
+
+@media print and (orientation: portrait) {
+    body {
+        font-family: 'Arial', 'Helvetica';
+        background-image: none;
+    }
+
+    header {
+        display: flex;
+        flex-flow: column wrap;
+    }
+    .nav_links {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    /* Pricing cards styling and layout */
+    .pricing {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-end;
+    }
+    .card {
+        border: solid 2px #45ADDD;
+        flex-basis: 325px;
+    }
+
+    /* Gallery hidden in print view */
+    .gallery {
+        display: none;
+    }
+
+    /* Added thumbs up emoji in card content */
+
+    .card li:nth-of-type(2)::after{
+        content:  "\1F44D"; /* Unicode copied from compart.com */
+    }
 }
 
 
